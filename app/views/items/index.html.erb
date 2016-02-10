@@ -15,6 +15,7 @@
         <tr>
           <th>Title</th>
           <th>Description</th>
+          <th>Image</th>
           <th>Price</th>
           <th>Shipping</th>
           <th>Stock</th>
@@ -27,6 +28,7 @@
           <tr>
             <td><%= item.title %></td>
             <td><%= item.description %></td>
+            <td><%= image_tag item.image.url(:medium) %></td>
             <td><%= item.price %></td>
             <td><%= item.shipping %></td>
             <td><%= item.stock %></td>
