@@ -15,19 +15,19 @@
   <div class="container white-background">
     <% @items.each do |item| %>
       <p id="notice"><%= notice %></p>
-      <!-- <div class="book-index"> -->
-        <div class="col-lg-4 col-md-6 col-sm-6">
+        <div class="col-lg-4 col-md-6 col-sm-6 book-position">
             <p><%= image_tag item.image.url(:medium) %></p>
             <h4 class="item-title"><%= item.title %></h4>
             <p><%= item.description %></p>
-            <p><%= item.price %></p>
-            <p><%= item.shipping %></p>
-            <p><%= item.stock %></p>
-            <p><%= link_to 'Show', item %></p>
-            <p><%= link_to 'Edit', edit_item_path(item) %></p>
-            <p><%= link_to 'Destroy', item, method: :delete, data: { confirm: 'Are you sure?' } %></p>
-          <!-- </div> -->
+            <p>Price $<%= item.price %></p>
+            <p>Shipping $<%= item.shipping %></p>
+            <p>
+              <%= link_to 'Show', item %> /
+              <%= link_to 'Edit', edit_item_path(item) %> /
+              <%= link_to 'Destroy', item, method: :delete, data: { confirm: 'Are you sure?' } %>
+            </p>
         </div>
-     <% end %>
+        <% end %>
+      </div>
     </div>
   </div>
