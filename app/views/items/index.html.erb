@@ -1,46 +1,33 @@
   <div class="intro">
-    <h1>We are moving out of South Korea.</h1>
-    <h1>Time to get rid of our stuff.</h1>
+    <!-- <h1>Be a better teacher</h1> -->
+    <strong><h1>It took years to find the best books for teaching English.</h1></strong>
+    <h3>Now we are moving out of the country and selling all of them.</h3>
+    <ul>
+      <ul class="btn btn-sm white-button-border">Kinder</ul>
+      <ul class="btn btn-sm white-button-border">Elementary</ul>
+      <ul class="btn btn-sm white-button-border">Middle</ul>
+      <ul class="btn btn-sm white-button-border">Young adult</ul>
+      <ul class="btn btn-sm white-button-border">Adult</ul>
+    </ul>
   </div>
 </div>
 
-<div class="white-background">
-  <div class="container blue-font">
-    <p id="notice"><%= notice %></p>
-
-    <h1>Listing Items</h1>
-
-    <table>
-      <thead>
-        <tr>
-          <th>Title</th>
-          <th>Description</th>
-          <th>Image</th>
-          <th>Price</th>
-          <th>Shipping</th>
-          <th>Stock</th>
-          <th colspan="3"></th>
-        </tr>
-      </thead>
-
-      <tbody>
-        <% @items.each do |item| %>
-          <tr>
-            <td><%= item.title %></td>
-            <td><%= item.description %></td>
-            <td><%= image_tag item.image.url(:medium) %></td>
-            <td><%= item.price %></td>
-            <td><%= item.shipping %></td>
-            <td><%= item.stock %></td>
-            <td><%= link_to 'Show', item %></td>
-            <td><%= link_to 'Edit', edit_item_path(item) %></td>
-            <td><%= link_to 'Destroy', item, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-          </tr>
-        <% end %>
-      </tbody>
-    </table>
-
-    <br>
-
-    <%= link_to 'New Item', new_item_path %>
+  <div class="container white-background">
+    <% @items.each do |item| %>
+      <p id="notice"><%= notice %></p>
+      <!-- <div class="book-index"> -->
+        <div class="col-lg-4 col-md-6 col-sm-6">
+            <p><%= image_tag item.image.url(:medium) %></p>
+            <h4 class="item-title"><%= item.title %></h4>
+            <p><%= item.description %></p>
+            <p><%= item.price %></p>
+            <p><%= item.shipping %></p>
+            <p><%= item.stock %></p>
+            <p><%= link_to 'Show', item %></p>
+            <p><%= link_to 'Edit', edit_item_path(item) %></p>
+            <p><%= link_to 'Destroy', item, method: :delete, data: { confirm: 'Are you sure?' } %></p>
+          <!-- </div> -->
+        </div>
+     <% end %>
+    </div>
   </div>
