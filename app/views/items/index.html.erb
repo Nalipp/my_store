@@ -1,13 +1,15 @@
   <div class="intro">
     <!-- <h1>Be a better teacher</h1> -->
-    <strong><h1>It took years to find the best books for teaching English.</h1></strong>
-    <h3>Now we are moving out of the country and selling all of them.</h3>
+    <div class="row">
+      <strong><h1>It took us years to find the best books for teaching English.</h1></strong>
+      <h3>Now we are moving out of the country and selling all of them.</h3>
+    </div>
     <ul>
-      <ul class="btn btn-sm white-button-border">Kinder</ul>
-      <ul class="btn btn-sm white-button-border">Elementary</ul>
-      <ul class="btn btn-sm white-button-border">Middle</ul>
-      <ul class="btn btn-sm white-button-border">Young adult</ul>
-      <ul class="btn btn-sm white-button-border">Adult</ul>
+        <ul class="btn btn-sm white-button-border">Kinder</ul>
+        <ul class="btn btn-sm white-button-border">Elementary</ul>
+        <ul class="btn btn-sm white-button-border">Middle</ul>
+        <ul class="btn btn-sm white-button-border">Young adult</ul>
+        <ul class="btn btn-sm white-button-border">Adult</ul>
     </ul>
   </div>
 </div>
@@ -18,9 +20,8 @@
         <div class="col-lg-4 col-md-6 col-sm-6 book-position">
             <p><%= image_tag item.image.url(:medium) %></p>
             <h4 class="item-title"><%= item.title %></h4>
-            <p><%= item.description %></p>
-            <p>Price $<%= item.price %></p>
-            <p>Shipping $<%= item.shipping %></p>
+            <p><%= truncate(item.description, length:150) %></p>
+            <p>$<%= item.price %></p>
             <p>
               <%= link_to 'Show', item %> /
               <%= link_to 'Edit', edit_item_path(item) %> /
