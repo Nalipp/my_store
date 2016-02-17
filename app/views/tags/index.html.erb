@@ -19,5 +19,5 @@
 <br>
 
 <% if user_signed_in? && current_user.admin? %>
-  <h4><%= link_to 'New Tag', new_tag_path %></h4>
+  <h4><%= link_to 'New Tag', new_tag_path %> / <%= link_to 'Back', items_path %></h4>
 <% end %>
