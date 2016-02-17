@@ -23,9 +23,11 @@
         <p><%= truncate(item.description, length:150) %></p>
         <p>$<%= item.price %></p>
         <p>
+          <% if user_signed_in? && current_user.admin? %>
           <%= link_to 'Show', item %> /
           <%= link_to 'Edit', edit_item_path(item) %> /
           <%= link_to 'Destroy', item, method: :delete, data: { confirm: 'Are you sure?' } %>
+          <% end %>
         </p>
     </div>
     <% end %>

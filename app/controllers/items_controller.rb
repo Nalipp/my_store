@@ -1,5 +1,6 @@
 class ItemsController < ApplicationController
   before_action :set_item, only: [:show, :edit, :update, :destroy]
+  before_action :require_admin, except: [:show, :index]
 
   # GET /items
   # GET /items.json
@@ -70,5 +71,12 @@ class ItemsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def item_params
       params.require(:item).permit(:title, :description, :price, :shipping, :stock, :image)
+    end
+
+    def require_admin
+      if current_user != current_user.admin?
+        flash[:danger] = "you are not an admin"
+        redirect_to :items
+      end
     end
 end
