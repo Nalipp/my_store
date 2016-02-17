@@ -6,6 +6,9 @@
       <% else %>
         <ul><%= link_to "login", new_user_session_path %></ul>
       <% end %>
+      <% if user_signed_in? && current_user.admin? %>
+        <ul><%= link_to "tags", tags_path %></ul>
+      <% end %>
     </div>
   </div>
 </nav>

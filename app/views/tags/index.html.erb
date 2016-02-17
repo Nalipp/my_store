@@ -1,0 +1,18 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Tags</h1>
+<% @tags.each do |tag| %>
+  <div class="row">
+    <div class="col-xs-6">
+      <h4><%= tag.category %></h4>
+    </div>
+    <div class="col-xs-6">
+      <p><%= link_to 'Show', tag %> /
+      <%= link_to 'Edit', edit_tag_path(tag) %> /
+      <%= link_to 'Destroy', tag, method: :delete, data: { confirm: 'Are you sure?' } %></p>
+    </div>
+  </div>
+<% end %>
+<br>
+
+<%= link_to 'New Tag', new_tag_path %>
