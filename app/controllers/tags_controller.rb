@@ -1,5 +1,6 @@
 class TagsController < ApplicationController
   before_action :set_tag, only: [:show, :edit, :update, :destroy]
+  before_action :require_admin, except: [:show, :index]
 
   # GET /tags
   # GET /tags.json
@@ -70,5 +71,12 @@ class TagsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def tag_params
       params.require(:tag).permit(:category)
+    end
+
+    def require_admin
+      unless user_signed_in? && current_user.admin?
+        flash[:danger] = "you are not an admin"
+        redirect_to :items
+      end
     end
 end

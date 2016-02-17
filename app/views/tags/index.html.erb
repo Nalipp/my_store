@@ -1,18 +1,23 @@
 <p id="notice"><%= notice %></p>
 
 <h1>Listing Tags</h1>
+<hr>
 <% @tags.each do |tag| %>
   <div class="row">
     <div class="col-xs-6">
-      <h4><%= tag.category %></h4>
+      <h3><%= tag.category %></h3>
     </div>
     <div class="col-xs-6">
-      <p><%= link_to 'Show', tag %> /
-      <%= link_to 'Edit', edit_tag_path(tag) %> /
-      <%= link_to 'Destroy', tag, method: :delete, data: { confirm: 'Are you sure?' } %></p>
+      <% if user_signed_in? && current_user.admin? %>
+        <h4><%= link_to 'Edit', edit_tag_path(tag) %> /
+        <%= link_to 'Destroy', tag, method: :delete, data: { confirm: 'Are you sure?' } %></h4>
+      <% end %>
     </div>
   </div>
+  <hr>
 <% end %>
 <br>
 
-<%= link_to 'New Tag', new_tag_path %>
+<% if user_signed_in? && current_user.admin? %>
+  <h4><%= link_to 'New Tag', new_tag_path %></h4>
+<% end %>

@@ -74,7 +74,7 @@ class ItemsController < ApplicationController
     end
 
     def require_admin
-      if current_user != current_user.admin?
+      unless user_signed_in? && current_user.admin?
         flash[:danger] = "you are not an admin"
         redirect_to :items
       end
