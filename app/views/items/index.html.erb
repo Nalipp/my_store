@@ -1,6 +1,7 @@
   <div class="intro">
     <!-- <h1>Be a better teacher</h1> -->
     <div class="row">
+      <p id="notice"><%= notice %></p>
       <strong><h1>It took us years to find the best books for teaching English.</h1></strong>
       <h3>Now we are moving out of the country and selling all of them.</h3>
     </div>
@@ -16,19 +17,17 @@
 
   <div class="container white-background">
     <% @items.each do |item| %>
-      <p id="notice"><%= notice %></p>
-        <div class="col-lg-4 col-md-6 col-sm-6 book-position">
-            <p><%= image_tag item.image.url(:medium) %></p>
-            <h4 class="item-title"><%= item.title %></h4>
-            <p><%= truncate(item.description, length:150) %></p>
-            <p>$<%= item.price %></p>
-            <p>
-              <%= link_to 'Show', item %> /
-              <%= link_to 'Edit', edit_item_path(item) %> /
-              <%= link_to 'Destroy', item, method: :delete, data: { confirm: 'Are you sure?' } %>
-            </p>
-        </div>
-        <% end %>
-      </div>
+    <div class="col-lg-4 col-md-6 col-sm-6 book-position">
+        <p><%= image_tag item.image.url(:medium) %></p>
+        <h4 class="item-title"><%= item.title %></h4>
+        <p><%= truncate(item.description, length:150) %></p>
+        <p>$<%= item.price %></p>
+        <p>
+          <%= link_to 'Show', item %> /
+          <%= link_to 'Edit', edit_item_path(item) %> /
+          <%= link_to 'Destroy', item, method: :delete, data: { confirm: 'Are you sure?' } %>
+        </p>
     </div>
+    <% end %>
   </div>
+</div>
