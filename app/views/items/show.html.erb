@@ -27,5 +27,13 @@
   <%= @item.stock %>
 </p>
 
+<p> Tags:
+<% if @item.tags.any? %>
+  <% @item.tags.each do |tag| %>
+    <ul class="btn btn-sm white-button-border"><%= tag.category %></ul>
+  <% end %>
+<% end %>
+</p>
+
 <%= link_to 'Edit', edit_item_path(@item) %> |
 <%= link_to 'Back', items_path %>
