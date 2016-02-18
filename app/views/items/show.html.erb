@@ -29,9 +29,7 @@
 
 <p> Tags:
 <% if @item.tags.any? %>
-  <% @item.tags.each do |tag| %>
-    <ul class="btn btn-sm white-button-border"><%= tag.category %></ul>
-  <% end %>
+  <%= render @item.tags %>
 <% end %>
 </p>
 

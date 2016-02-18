@@ -5,6 +5,9 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+User.create!(email: "nateplipp@gmail.com",
+             password: "password",
+             admin: true)
 Item.create!(image: File.new("#{Rails.root}/app/assets/images/the_economics_book.jpg"),
             title:  "The Economics Book",
             description: "Book sumarizes major contributions to modern economic theory in short plain English segments. You can pick it up and read for 5 minutes and learn something. Unfortunatley it is hard cover and too heavy to pack. It costs $50 new.",
@@ -35,3 +38,10 @@ Item.create!(image: File.new("#{Rails.root}/app/assets/images/ice_cream.jpg"),
             title:  "Everybody Up STARTER",
             description: "Philosophical elephant contemplates sharing his ice cream.",
             price: "6")
+Tag.create!(category: "All")
+Tag.create!(category: "Esl")
+Tag.create!(category: "Kinder")
+Tag.create!(category: "Elementary")
+Tag.create!(category: "Middle")
+Tag.create!(category: "Young adult")
+Tag.create!(category: "Adult")

@@ -6,26 +6,12 @@
       <h3>Now we are moving out of the country and selling all of them.</h3>
     </div>
     <% Tag.all.each do |tag| %>
-      <ul class="btn btn-sm white-button-border"><%= tag.category %></ul>
+      <ul class="btn btn-sm white-button-border"><%= link_to tag.category, tag_path(tag) %></ul>
     <% end %>
   </div>
 </div>
 
   <div class="container white-background">
-    <% @items.each do |item| %>
-    <div class="col-lg-4 col-md-6 col-sm-6 book-position">
-        <p><%= image_tag item.image.url(:medium) %></p>
-        <h4 class="item-title"><%= item.title %></h4>
-        <p><%= truncate(item.description, length:150) %></p>
-        <p>$<%= item.price %></p>
-        <p>
-          <% if user_signed_in? && current_user.admin? %>
-          <%= link_to 'Show', item %> /
-          <%= link_to 'Edit', edit_item_path(item) %> /
-          <%= link_to 'Destroy', item, method: :delete, data: { confirm: 'Are you sure?' } %>
-          <% end %>
-        </p>
-    </div>
-    <% end %>
+    <%= render 'items/item', obj: @items %>
   </div>
 </div>

@@ -38,16 +38,11 @@
 
   <div class="field">
     <p> Tags:
-
-
       <h4>
         <%= f.collection_check_boxes :tag_ids, Tag.all, :id, :category do |cb| %>
           <% cb.label(class: "btn btn-sm white-button-border") {cb.check_box(class: "checkbox") + cb.text } %>
         <% end %>
       </h4>
-
-
-
     </p>
   </div>
 
