@@ -1,8 +1,24 @@
 <% obj.each do |item| %>
 <div class="col-lg-4 col-md-6 col-sm-6 book-position">
-    <p><%= image_tag item.image.url(:medium) %></p>
+  <div class="modal fade" id="myModal<%= item.id %>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"><h2 class="gray-font mobile-touch">x</h2></span></button>
+          <h1 class="modal-title gray-font" id="myModal<%= item.id %>"><%= item.title %></h1>
+        </div>
+        <div class="modal-body">
+          <h2 class="gray-font" id="tall-font"><%= item.description %></h2>
+        </div>
+        <div class="modal-footer">
+          <h2>$<%= item.price %></h2>
+        </div>
+      </div>
+    </div>
+  </div>
+    <p data-toggle="modal" data-target="#myModal<%= item.id %>"><%= image_tag item.image.url(:medium) %></p>
     <h4 class="item-title"><%= item.title %></h4>
-    <p><%= truncate(item.description, length:150) %></p>
+    <p><%= truncate(item.description, length:80) %></p>
     <p>$<%= item.price %></p>
     <p>
       <% if user_signed_in? && current_user.admin? %>
