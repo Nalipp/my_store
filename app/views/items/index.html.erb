@@ -1,12 +1,1 @@
-  <div class="intro">
-    <!-- <h1>Be a better teacher</h1> -->
-    <div class="row">
-      <p id="notice"><%= notice %></p>
-      <strong><h1>It took us years to find the best books for teaching English.</h1></strong>
-      <h3>Now we are moving out of the country and selling all of them.</h3>
-    </div>
-    <% Tag.all.each do |tag| %>
-      <ul class="btn btn-sm white-button-border"><%= link_to tag.category, tag_path(tag) %></ul>
-    <% end %>
-  </div>
-</div>
+<%= render 'shared/intro' %>
